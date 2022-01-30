@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Declaracionjurada;
 use App\Periodo;
 use App\Cargalectiva;
+use Auth;;
 class DeclaracionjuradaController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class DeclaracionjuradaController extends Controller
      */
     public function index()
     {
-        $items = Declaracionjurada::paginate();
+        $items = Declaracionjurada::where("docente_id",Auth::user()->docente->id)->paginate();
         return view("docente.declaracionjurada.index",compact('items'));
     }
 

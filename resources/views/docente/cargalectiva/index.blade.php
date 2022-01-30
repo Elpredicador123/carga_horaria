@@ -61,13 +61,14 @@
                                   <td class="text-success"><i class="fa fa-check-circle-o fa-lg"></i> terminado</td>
                                 @endif
                                 <td class="d-flex justify-content-center">
-                                  <a class="btn btn-primary btn-sm" href="{{ route('cargalectiva.cargalectivasllenar',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Asignacion Carga</a>
+                                  @if ($item->cargalectiva->estado_asignado==1)
+                                    <a class="btn btn-primary btn-sm" href="{{ route('cargalectiva.cargalectivasllenar',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Asignacion Carga</a>
+                                  @endif
                                   <a class="btn btn-info btn-sm @if ($item->cargalectiva->estado_terminado==1)  @else d-none @endif " target="_blank" href="{{ route('cargalectiva.imprimirCarga',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Declaracion Carga</a>
                                   @if ($item->cargalectiva->cargahoraria)
-                                      
-                                  @if ($item->cargalectiva->cargahoraria->estado_terminado==1)
-                                  <a class="btn btn-secondary btn-sm " target="_blank" href="{{ route('cargalectiva.imprimirHorario',$item->cargalectiva->cargahoraria->id) }}"><i class="fa fa-search"></i> Horario Semanal</a>
-                                  @endif
+                                    @if ($item->cargalectiva->cargahoraria->estado_terminado==1)
+                                    <a class="btn btn-secondary btn-sm " target="_blank" href="{{ route('cargalectiva.imprimirHorario',$item->cargalectiva->cargahoraria->id) }}"><i class="fa fa-search"></i> Horario Semanal</a>
+                                    @endif
                                   @endif
                                 </td>
                             </tr>
