@@ -19,6 +19,13 @@ class DocenteSeeder extends Seeder
                 "categoria_id" => "3",
                 "modalidad_id" => "1",
             ],
+            [
+                "escuela_id" => "1",
+                "user_id" => "4",
+                "condicion_id" => "1",
+                "categoria_id" => "3",
+                "modalidad_id" => "1",
+            ],
         ]);
     }
 }
