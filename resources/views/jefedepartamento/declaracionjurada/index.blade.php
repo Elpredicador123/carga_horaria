@@ -66,7 +66,7 @@
                                 </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center text-danger"><strong>!!No hay listado de Declaracion Jurada!!</strong></td>
+                                <td colspan="5" class="text-center text-danger"><strong>!!No hay listado de Declaraciones Juradas!!</strong></td>
                               </tr>
                             @endforelse
                         </tbody>

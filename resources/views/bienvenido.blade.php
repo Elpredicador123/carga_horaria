@@ -5,7 +5,8 @@
      <div class="row text-center flex-wrap-reverse py-2 justify-content-around align-items-center">
           <div class="col-md-5">
                <p class="text-dark">
-                    Un saludo muy especial a la comunidad <strong class="text-success">Universidad Nacional de Trujillo</strong>  y al público en general. Quiero aprovechar la oportunidad para agradecer la participación de los docentes, estudiantes y administrativos en el manejo de la institucion durante estos meses.
+
+                    Un saludo muy especial a la comunidad de <strong class="text-success">Universidad Nacional de Trujillo</strong>  y al público en general. Quiero aprovechar la oportunidad para agradecer la participación de los docentes, estudiantes y administrativos en el manejo de la institucion durante estos meses.
                     Este 2022 hemos cumplido 197 años de Fundación (10 de mayo de 1824) <strong class="text-success">Universidad Nacional de Trujillo</strong>, y por medio de esta página web queremos reflejar lo que podemos lograr juntos y lo lejos que podemos llegar, si nos proponemos objetivos ambiciosos, nos ponemos a trabajar y los cumplimos.
                     Y con esta pandemia que nos ha golpeado a todos les dejo un mensaje
                     <br>
