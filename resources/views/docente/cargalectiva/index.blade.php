@@ -64,7 +64,7 @@
                                   @if ($item->cargalectiva->estado_asignado==1)
                                     <a class="btn btn-primary btn-sm" href="{{ route('cargalectiva.cargalectivasllenar',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Asignacion Carga</a>
                                   @else
-                                  <i class="fa fa-clock-o fa-lg text-warning"></i> esperando
+                                    <i class="fa fa-clock-o fa-lg text-warning ml-3"></i>
                                   @endif
                                   <a class="btn btn-info btn-sm @if ($item->cargalectiva->estado_terminado==1)  @else d-none @endif " target="_blank" href="{{ route('cargalectiva.imprimirCarga',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Declaracion Carga</a>
                                   @if ($item->cargalectiva->cargahoraria)
