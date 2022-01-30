@@ -13,11 +13,11 @@ class Detallecargalectiva extends Model
     }
     public function curso()
     {
-        return $this->belongsTo('App\curso');
+        return $this->belongsTo('App\Curso');
     }
     public function ciclo()
     {
-        return $this->belongsTo('App\ciclo');
+        return $this->belongsTo('App\Ciclo');
     }
     public function seccion()
     {
