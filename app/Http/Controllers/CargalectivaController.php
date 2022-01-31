@@ -167,6 +167,21 @@ class CargalectivaController extends Controller
         return redirect()->back()->with('datos','Horario semanal eliminado correctamente');
     }
 
+    public function horasocupdas($id,$dia)
+    {
+        $horasocupadas = Detallecargahoraria::where('cargahoraria_id',$id)
+        ->where('dia',$dia)
+        ->get(['hora_inicio','hora_fin']);
+        $horas=[];
+        foreach ($horasocupadas as $key => $h) {
+            for ($i= $h->hora_inicio; $i <$h->hora_fin ; $i++) { 
+                array_push($horas,$i);
+            }
+        }
+         $horas = array_unique( $horas);
+        return $horas;
+    }
+
     public function horas_detallecarga($id,$tipo)
     {
         

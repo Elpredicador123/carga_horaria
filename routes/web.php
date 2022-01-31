@@ -46,4 +46,5 @@ Route::get('/horas_completas/{id}/{cantidad}/{tipo}/{detalle_id}/{tipo_hora}', '
 Route::get('/imprimirCarga/{id}', 'CargalectivaController@imprimirCarga')->name('cargalectiva.imprimirCarga');
 Route::get('/imprimirHorario/{id}', 'CargalectivaController@imprimirHorario')->name('cargalectiva.imprimirHorario');
 Route::get('/declaracionjuradasplantilla', 'DeclaracionjuradaController@plantilla')->name('declaracionjurada.plantilla');
+Route::get('/horasocupdas/{id}/{dia}', 'CargalectivaController@horasocupdas');
 

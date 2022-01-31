@@ -140,7 +140,7 @@
                         </div>
                         <div class="form-group col-md-3 form-default">
                             <label for="dia" class="text-capitalize">dia</label>
-                            <select class="form-control select2 select2-hidden-accessible selectpicker"aria-hidden="true" data-live-search="true" name="dia" id="dia" required>
+                            <select class="form-control bg-light px-3" disabled aria-hidden="true" data-live-search="true" name="dia" id="dia" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">lunes</option>
                                 <option value="2">martes</option>
@@ -154,14 +154,6 @@
                             <label for="hora_inicio" class="text-capitalize">inicio</label>
                             <select class="form-control bg-light px-3" disabled aria-hidden="true" data-live-search="true" name="hora_inicio" id="hora_inicio" required>
                                 <option value="">Seleccionar</option>
-                               @php
-                                    for ($i=7; $i <=21 ; $i++) { 
-                                        $inicio[$i]=$i;
-                                    }
-                                @endphp
-                                @foreach ($inicio as $i)
-                                    <option value="{{$i}}">{{$i}}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-3 form-default">
@@ -308,6 +300,7 @@
     let grupos_laboratorio;
     let horas_hora;
     let ultimo;
+    let dia;
 $(document).ready(function() {
             $('#detallecargalectiva').change(function() {
                 detalleHoras();
@@ -318,8 +311,36 @@ $(document).ready(function() {
             $('#hora_inicio').change(function() {
                 sumarHora();
             });
+            $('#dia').change(function() {
+                hora_inicio();
+            });
         });
 
+function hora_inicio() {
+    $('#hora_inicio').empty();
+    $('#hora_inicio').append('<option value="">Seleccionar</option>');
+    dia = $('#dia').val();
+    if (dia) {
+        vector=[7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+        $.get('/horasocupdas/' + cargahoraria_id + "/" + dia, function(horas) {
+            console.log(horas)
+            for (const i in horas) {
+                for (const j in vector) {
+                    if (vector[j] == horas[i]) {
+                        vector.splice(j, 1);
+                    }
+                }
+            }
+
+            vector.forEach(hora => {
+                $('#hora_inicio').append('<option value="' + hora + '" >' + hora + '</option>');
+            });
+        });
+        $('#hora_inicio').prop('disabled',false);
+    }else{
+        $('#hora_inicio').prop('disabled',true);
+    }
+}
 function sumarHora() {
     console.log("sumando")
     let hora_inicio = parseInt(document.getElementById("hora_inicio").value)
@@ -372,14 +393,14 @@ function horasCompletas(cantidad,tipo,detalle_id,tipo_hora) {
             console.log("verdad")
             $('#'+tipo_hora).addClass('bg-info');
             $('#texto_horas_completas').addClass('d-none');
-            $('#hora_inicio').prop('disabled',false);
+            $('#dia').prop('disabled',false);
             $('#boton_grabar').removeClass('d-none');
         }else{
             console.log("falso")
             $('#'+tipo_hora).addClass('bg-danger');
             $('#texto_horas_completas').removeClass('d-none');
-            $('#hora_inicio').prop('disabled',true);
-            $('#hora_inicio').val('');
+            $('#dia').prop('disabled',true);
+            $('#dia').val('');
             $('#hora_fin').val('');
             $('#boton_grabar').addClass('d-none');
         }
@@ -387,10 +408,11 @@ function horasCompletas(cantidad,tipo,detalle_id,tipo_hora) {
             $('#'+tipo_hora).removeClass('bg-info');
             $('#'+tipo_hora).addClass('bg-danger');
             $('#texto_horas_completas').removeClass('d-none');
-            $('#hora_inicio').prop('disabled',true);
-            $('#hora_inicio').val('');
+            $('#dia').prop('disabled',true);
+            $('#dia').val('');
             $('#hora_fin').val('');
             $('#boton_grabar').addClass('d-none');
+            $('#hora_inicio').prop('disabled',true);
         }
     })
 }
