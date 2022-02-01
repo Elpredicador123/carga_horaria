@@ -48,3 +48,9 @@ Route::get('/imprimirHorario/{id}', 'CargalectivaController@imprimirHorario')->n
 Route::get('/declaracionjuradasplantilla', 'DeclaracionjuradaController@plantilla')->name('declaracionjurada.plantilla');
 Route::get('/horasocupdas/{id}/{dia}', 'CargalectivaController@horasocupdas');
 
+
+Route::resource('/usuarios', 'UserController')->names('usuarios');
+Route::get('/crearusuario/{tipo}', 'UserController@create')->name('usuarios.create');
+Route::post('/registrarusuario/{tipo}', 'UserController@store')->name('usuarios.store');
+Route::get('/editarusuario/{id}/{tipo}', 'UserController@edit')->name('usuarios.edit');
+Route::put('/updateusuario/{id}/{tipo}', 'UserController@update')->name('usuarios.update');
