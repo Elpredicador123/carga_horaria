@@ -8,7 +8,7 @@
     <title>Carga Horaria</title>
     <style>
         body {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: bold;
         }
         th {
