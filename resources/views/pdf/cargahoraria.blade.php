@@ -8,7 +8,7 @@
     <title>Carga Horaria</title>
     <style>
         body {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
         }
         th {
@@ -23,6 +23,7 @@
         }
         table {
             text-align: center;
+            width: 700px;
         }
         .t1_t_1{
             width: 250px;
@@ -192,17 +193,17 @@
                         <div style="text-align: right;margin: 2em;margin-right: 8em;">
                              {{'Trujillo, '.date('d').' de '.date('M').' del '.date('Y')}}
                         </div>
-                        <div style="text-align: left;margin: 4em;margin-right: 8em;">
+                        <div style="text-align: left;margin: 1.5em;margin-right: 8em;">
                             --------------------------------------
                             <br>
                                     Firma del Profesor 
                         </div>
-                        <div style="text-align: right;margin: 4em;margin-right: 8em;">
+                        <div style="text-align: right;margin: 1.5em;">
                             --------------------------------------
                             <br>
                                     Firma del Director de Dpto. 
                         </div>
-                        <div style="text-align: left;margin: 4em;margin-right: 8em;">
+                        <div style="text-align: left;margin: 1.5em;margin-right: 8em;">
                             --------------------------------------
                             <br>
                                     V° B° DECANO FAC.

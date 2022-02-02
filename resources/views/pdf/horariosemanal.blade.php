@@ -8,7 +8,7 @@
     <title>Horario Semanal</title>
     <style>
         body {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
         }
         th {
@@ -21,6 +21,7 @@
         }
         table {
             text-align: center;
+            width: 1020px;
         }
         .t1_t1_1{
             width: 150px;
@@ -157,7 +158,7 @@
                         <br>
                         DECANO
                     </div>
-                    <div style="text-align: right;margin: 1.5em;margin-right: 8em;">
+                    <div style="text-align: right;margin: 1.5em;">
                         ------------------------------------------------------
                         <br>
                         FIRMA DEL PROFESOR
