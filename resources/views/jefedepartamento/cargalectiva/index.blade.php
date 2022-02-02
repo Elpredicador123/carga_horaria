@@ -39,7 +39,7 @@
                                 <th>#</th>
                                 <th>DOCENTE</th>
                                 <th>PERIODO</th>
-                                <th>ESTADO</th>
+                                <th>ASIGNADO</th>
                                 <th>OPCIONES</th>
                             </tr>
                         </thead>

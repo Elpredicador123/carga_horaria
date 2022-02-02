@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>Carga Horaria</title>
     <style>
         body {
             font-size: 12px;
@@ -190,7 +190,22 @@
                             </table>
                         </div>
                         <div style="text-align: right;margin: 2em;margin-right: 8em;">
-                            Trujillo, {{$fecha}}
+                             {{'Trujillo, '.date('d').' de '.date('M').' del '.date('Y')}}
+                        </div>
+                        <div style="text-align: left;margin: 4em;margin-right: 8em;">
+                            --------------------------------------
+                            <br>
+                                    Firma del Profesor 
+                        </div>
+                        <div style="text-align: right;margin: 4em;margin-right: 8em;">
+                            --------------------------------------
+                            <br>
+                                    Firma del Director de Dpto. 
+                        </div>
+                        <div style="text-align: left;margin: 4em;margin-right: 8em;">
+                            --------------------------------------
+                            <br>
+                                    V° B° DECANO FAC.
                         </div>
                 </div>
             </div>

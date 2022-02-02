@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>Horario Semanal</title>
     <style>
         body {
             font-size: 12px;
@@ -150,7 +150,22 @@
                         </table>
                     </div>
                     <div style="text-align: right;margin: 2em;margin-right: 8em;">
-                        Trujillo, {{$fecha}}
+                        {{'Trujillo, '.date('d').' de '.date('M').' del '.date('Y')}}
+                    </div>
+                    <div style="text-align: left;margin: 1.5em;margin-right: 8em;">
+                        ------------------------------------------------------
+                        <br>
+                        DECANO
+                    </div>
+                    <div style="text-align: right;margin: 1.5em;margin-right: 8em;">
+                        ------------------------------------------------------
+                        <br>
+                        FIRMA DEL PROFESOR
+                    </div>
+                    <div style="text-align: left;margin: 1.5em;margin-right: 8em;">
+                        ------------------------------------------------------
+                        <br>
+                        DIRECTOR DE DEPARTAMENTO
                     </div>
                 </div>
             </div>

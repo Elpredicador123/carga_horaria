@@ -41,7 +41,8 @@
                                 <th>#</th>
                                 <th>ASIGNADO</th>
                                 <th>PERIODO</th>
-                                <th>TERMINADO</th>
+                                <th>CARGA</th>
+                                <th>HORARIO</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                         </thead>
@@ -58,8 +59,19 @@
                                 @if ($item->cargalectiva->estado_terminado==0)
                                   <td class="text-warning"><i class="fa fa-clock-o fa-lg"></i> pendiente</td>
                                 @else
-                                  <td class="text-success"><i class="fa fa-check-circle-o fa-lg"></i> terminado</td>
+                                  <td class="text-success"><i class="fa fa-check-circle-o fa-lg"></i> terminada</td>
                                 @endif
+                                @if ($item->cargalectiva->cargahoraria)
+                                    @if ($item->cargalectiva->cargahoraria->estado_terminado==1)
+                                    <td class="text-success"><i class="fa fa-check-circle-o fa-lg"></i> terminado</td>
+                                    @endif
+                                    @if ($item->cargalectiva->cargahoraria->estado_terminado==0)
+                                    <td class="text-warning"><i class="fa fa-clock-o fa-lg"></i> pendiente</td>
+                                    @endif
+                                @else
+                                  <td class="text-warning"><i class="fa fa-clock-o fa-lg"></i></td>
+                                @endif
+                               
                                 <td class="d-flex justify-content-center">
                                   @if ($item->cargalectiva->estado_asignado==1)
                                     <a class="btn btn-primary btn-sm" href="{{ route('cargalectiva.cargalectivasllenar',$item->cargalectiva->id) }}"><i class="fa fa-search"></i> Asignacion Carga</a>
