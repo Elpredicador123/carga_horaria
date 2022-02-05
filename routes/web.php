@@ -47,6 +47,7 @@ Route::get('/imprimirCarga/{id}', 'CargalectivaController@imprimirCarga')->name(
 Route::get('/imprimirHorario/{id}', 'CargalectivaController@imprimirHorario')->name('cargalectiva.imprimirHorario');
 Route::get('/declaracionjuradasplantilla', 'DeclaracionjuradaController@plantilla')->name('declaracionjurada.plantilla');
 Route::get('/horasocupdas/{id}/{dia}', 'CargalectivaController@horasocupdas');
+Route::get('/imprimir_declaracionjurada/{id}', 'DeclaracionjuradaController@imprimir_declaracionjurada')->name('declaracionjurada.imprimir_declaracionjurada');
 
 
 Route::resource('/usuarios', 'UserController')->names('usuarios');

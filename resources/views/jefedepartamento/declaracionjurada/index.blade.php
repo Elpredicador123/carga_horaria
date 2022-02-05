@@ -40,6 +40,7 @@
                                 <th>DOCENTE</th>
                                 <th>PERIODO</th>
                                 <th>ESTADO</th>
+                                <th>DECLARACION</th>
                                 <th>OPCIONES</th>
                             </tr>
                         </thead>
@@ -62,8 +63,12 @@
                                     <td class="text-warning"><i class="fa fa-eye fa-lg mr-1"></i> {{$item->estado}}</td>
                                 @endif
                                 <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank" href="{{ route('declaracionjurada.imprimir_declaracionjurada',$item->id) }}"><i class="fa fa-download"></i></a>
+                                </td>
+                                <td>
                                   <a class="btn btn-primary" href="{{ route('declaracionjurada.editdeclaracionevaluar',$item->id) }}"><i class="fa fa-search"></i> Detalle</a>
-                                </tr>
+                                </td>
+                            </tr>
                             @empty
                             <tr>
                                 <td colspan="5" class="text-center text-danger"><strong>!!No hay listado de Declaraciones Juradas!!</strong></td>

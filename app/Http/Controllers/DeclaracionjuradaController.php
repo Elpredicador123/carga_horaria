@@ -146,4 +146,11 @@ class DeclaracionjuradaController extends Controller
 
         return redirect()->route('declaracionjurada.listardeclaracionevaluar')->with('datos','Declaracion Jurada actualizada correctamente');
     }
+
+    public function imprimir_declaracionjurada($id)
+    {
+        $item = Declaracionjurada::find($id);
+        $pdf = \PDF::loadView('pdf.declaracionjurada', compact('item'));
+        return $pdf->stream('DeclaracionJurada.pdf');
+    } 
 }
