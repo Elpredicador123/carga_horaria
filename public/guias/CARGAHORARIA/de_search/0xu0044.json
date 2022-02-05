@@ -1,0 +1,18 @@
+[
+	{ "s": "DE", "p": [6, 2, 8, 7, 4, 3, 5, 9, 11, 1] },
+	{ "s": "DEBE", "p": [3] },
+	{ "s": "DECLARACION", "p": [3, 2] },
+	{ "s": "DECLARACIONES", "p": [8, 2] },
+	{ "s": "DECLARACIÓN", "p": [5, 4, 9, 3, 2] },
+	{ "s": "DECLARCIONES", "p": [8] },
+	{ "s": "DECLARIÓN", "p": [8] },
+	{ "s": "DEFECTO", "p": [3] },
+	{ "s": "DEL", "p": [5, 2, 3, 9, 6, 4] },
+	{ "s": "DEPARTEMENTO", "p": [8] },
+	{ "s": "DESCARGA", "p": [9, 2] },
+	{ "s": "DESCARGAR", "p": [4] },
+	{ "s": "DESCRIPCIÓN", "p": [6] },
+	{ "s": "DETALLES", "p": [4, 11, 8] },
+	{ "s": "DOCENTE", "p": [5, 2, 9, 4, 3] },
+	{ "s": "DÍA", "p": [7] }
+]

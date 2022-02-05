@@ -111,15 +111,11 @@
                         <div class="form-group col-md-12 d-none text-capitalize text-danger text-center" id="texto_horas_completas">
                             <strong>horas completas registradas</strong> 
                         </div>
-                        <div class="form-group col-md-4 form-default d-none" id="contenedor_teoria">
+                        <div class="form-group col-md-6 form-default d-none" id="contenedor_teoria">
                             <label for="teoria" class="text-capitalize"> curso teoria</label>
                             <input class="form-control bg-light px-3" type="text" readonly onclick="seleccionarHora(this)" id="teoria" value="">
                         </div>
-                        <div class="form-group col-md-4 form-default d-none" id="contenedor_practica">
-                            <label for="practica" class="text-capitalize"> curso practica</label>
-                            <input class="form-control bg-light px-3" type="text" readonly onclick="seleccionarHora(this)" id="practica" value="">
-                        </div>
-                        <div class="form-group col-md-4 form-default d-none" id="contenedor_laboratorio">
+                        <div class="form-group col-md-6 form-default d-none" id="contenedor_laboratorio">
                             <label for="laboratorio" class="text-capitalize"> curso laboratorio</label>
                             <input class="form-control bg-light px-3" type="text" readonly onclick="seleccionarHora(this)" id="laboratorio" value="">
                         </div>
@@ -264,7 +260,7 @@
         $bandera=0;
         $acumulador=0;
             foreach ($item->cargalectiva->detallecargalectivas as $key => $detalle) {
-                $acumulador+=($detalle->horas_teoria * $detalle->grupos_teoria + $detalle->horas_practica * $detalle->grupos_practica + $detalle->horas_laboratorio * $detalle->grupos_laboratorio);
+                $acumulador+=($detalle->horas_teoria * $detalle->grupos_teoria + $detalle->horas_laboratorio * $detalle->grupos_laboratorio);
             }
             foreach ($item->cargalectiva->detallecargas as $key => $detalle) {
                 $acumulador+=($detalle->cantidad_horas);
@@ -293,10 +289,8 @@
 <script>
     let cargahoraria_id='{{$item->id}}';
     let horas_teoria;
-    let horas_practica;
     let horas_laboratorio;
     let grupos_teoria;
-    let grupos_practica;
     let grupos_laboratorio;
     let horas_hora;
     let ultimo;
@@ -348,10 +342,6 @@ function sumarHora() {
         $('#hora_fin').val(hora_inicio+horas_teoria);
         $('#tipo').val('teoria');
     }
-    if (ultimo=="practica") {
-        $('#hora_fin').val(hora_inicio+horas_practica);
-        $('#tipo').val('practica');
-    }
     if (ultimo=="laboratorio") {
         $('#hora_fin').val(hora_inicio+horas_laboratorio);     
         $('#tipo').val('laboratorio');
@@ -366,17 +356,13 @@ function seleccionarHora(e) {
     ultimo=e.id
     let detallecargalectiva = document.getElementById("detallecargalectiva").value
     let detallecarga = document.getElementById("detallecarga").value
-    $('#teoria,#practica,#laboratorio,#hora').removeClass('bg-info');
-    $('#teoria,#practica,#laboratorio,#hora').removeClass('bg-danger');
+    $('#teoria,#laboratorio,#hora').removeClass('bg-info');
+    $('#teoria,#laboratorio,#hora').removeClass('bg-danger');
     $('#texto_escoger').addClass('d-none');
     $('#hora_inicio').val('');
     $('#hora_fin').val('');
     if (e.id=="teoria") {
         horasCompletas(horas_teoria*grupos_teoria,"detallecargalectiva",detallecargalectiva,'teoria');
-    }
-    if (e.id=="practica") {
-        horasCompletas(horas_practica*grupos_practica,"detallecargalectiva",detallecargalectiva,'practica');
-        
     }
     if (e.id=="laboratorio") {
         horasCompletas(horas_laboratorio*grupos_laboratorio,"detallecargalectiva",detallecargalectiva,'laboratorio');
@@ -437,16 +423,16 @@ function horasCompletas(cantidad,tipo,detalle_id,tipo_hora) {
          detallecargalectiva.value = ''
          detallecarga.disabled = false
          detallecarga.required = true
-         $('#teoria,#practica,#laboratorio').val('');
-        $('#contenedor_teoria,#contenedor_practica,#contenedor_laboratorio').addClass('d-none');
+         $('#teoria,#laboratorio').val('');
+        $('#contenedor_teoria,#contenedor_laboratorio').addClass('d-none');
      }
  }
 
  function detalleHoras() {
             $detallecargalectiva = $("#detallecargalectiva").val();
             $detallecarga = $("#detallecarga").val();
-            $('#teoria,#practica,#laboratorio,#hora').removeClass('bg-info');
-            $('#teoria,#practica,#laboratorio,#hora').removeClass('bg-danger');
+            $('#teoria,#laboratorio,#hora').removeClass('bg-info');
+            $('#teoria,#laboratorio,#hora').removeClass('bg-danger');
             $('#texto_escoger').removeClass('d-none');
             $('#texto_horas_completas').addClass('d-none');
             $('#hora_inicio').prop('disabled',true);
@@ -464,15 +450,12 @@ function horasCompletas(cantidad,tipo,detalle_id,tipo_hora) {
                     console.log(hora)
                     if ($tipo=='detallecargalectiva') {
                         $('#teoria').val(' N° Horas: '+hora.horas_teoria+' - N° Grupos: '+hora.grupos_teoria);
-                        $('#practica').val(' N° Horas: '+hora.horas_practica+' - N° Grupos: '+hora.grupos_practica);
                         $('#laboratorio').val(' N° Horas: '+hora.horas_laboratorio+' - N° Grupos: '+hora.grupos_laboratorio);
                         horas_teoria=hora.horas_teoria
-                        horas_practica=hora.horas_practica
                         horas_laboratorio=hora.horas_laboratorio
                         grupos_teoria=hora.grupos_teoria
-                        grupos_practica=hora.grupos_practica
                         grupos_laboratorio=hora.grupos_laboratorio
-                        $('#contenedor_teoria,#contenedor_practica,#contenedor_laboratorio').removeClass('d-none');
+                        $('#contenedor_teoria,#contenedor_laboratorio').removeClass('d-none');
                     } else if ($tipo=='detallecarga'){
                         $('#hora').val(hora.cantidad_horas);
                         horas_hora=hora.cantidad_horas

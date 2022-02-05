@@ -65,8 +65,6 @@ class CargalectivaController extends Controller
                 "numero_alumnos" => $request->numero_alumnos[$i],
                 "horas_teoria" => $request->horas_teoria[$i],
                 "grupos_teoria" => $request->grupos_teoria[$i],
-                "horas_practica" => $request->horas_practica[$i],
-                "grupos_practica" => $request->grupos_practica[$i],
                 "horas_laboratorio" => $request->horas_laboratorio[$i],
                 "grupos_laboratorio" => $request->grupos_laboratorio[$i],
            

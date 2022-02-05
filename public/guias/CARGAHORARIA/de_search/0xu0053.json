@@ -1,0 +1,15 @@
+[
+	{ "s": "SE", "p": [3] },
+	{ "s": "SECCIÓN", "p": [11] },
+	{ "s": "SECRETARIA", "p": [8] },
+	{ "s": "SEGURO", "p": [3] },
+	{ "s": "SELECCIOMNAR", "p": [7] },
+	{ "s": "SELECCIONADO", "p": [3, 4] },
+	{ "s": "SELECCIONAR", "p": [7, 11, 3, 12] },
+	{ "s": "SELECCIÓN", "p": [3] },
+	{ "s": "SEMANA", "p": [7] },
+	{ "s": "SEMANAL", "p": [7, 6, 5] },
+	{ "s": "SI", "p": [3] },
+	{ "s": "SU", "p": [7] },
+	{ "s": "SUS", "p": [11] }
+]

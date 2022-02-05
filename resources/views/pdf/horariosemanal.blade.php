@@ -11,6 +11,10 @@
             font-size: 11px;
             font-weight: bold;
         }
+        table {
+            text-align: center;
+            width: 1020px;
+        }
         th {
             border: .1px solid rgb(192, 188, 188);
             padding: 0.5em;
@@ -18,16 +22,6 @@
         td {
             border: .1px solid rgb(192, 188, 188);
             padding: 0.3em 1em;
-        }
-        table {
-            text-align: center;
-            width: 1020px;
-        }
-        .t1_t1_1{
-            width: 150px;
-        }
-        .t1_t1_2{
-            width: 340px;
         }
         .titulo{
             background: rgb(21, 101, 138);
@@ -42,12 +36,20 @@
         .text-center{
             text-align: center;
         }
+
+        /* .t1_t1_1{
+            width: 150px;
+        }
+        .t1_t1_2{
+            width: 340px;
+        }
+        
         .t2_t1_1{
             width: 53px;
         }
         .t2_t1_2{
             width: 400px;
-        }
+        } */
     </style>
 </head>
 <body>

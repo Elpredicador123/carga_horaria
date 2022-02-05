@@ -17,7 +17,7 @@ class CreateDetallecargasTable extends Migration
             $table->id();
             $table->foreignId('cargalectiva_id')->constrained('cargalectivas')->onDelete('cascade');
             $table->foreignId('carga_id')->constrained('cargas')->onDelete('cascade');
-            $table->string('descripcion')->nullable();
+            $table->string('descripcion')->nullable()->default('');
             $table->bigInteger('cantidad_horas')->nullable()->default(0);
             $table->timestamps();
         });

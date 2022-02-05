@@ -75,7 +75,6 @@
                                         <th>CICLO</th>
                                         <th>N° TOT. ALUMNOS</th>
                                         <th>HRSTEO/GRUPOS</th>
-                                        <th>HRSPRA/GRUPOS</th>
                                         <th>HRSLAB/GRUPOS</th>
                                         <th>TOTAL HRS</th>
                                     </tr>
@@ -93,11 +92,10 @@
                                             <td>{{$detalle->ciclo->descripcion}}</td>
                                             <td>aprox. <input style="width: 40px" step="1" value="{{$detalle->numero_alumnos}}" class="bg-primary rounded rounded-3" min="1" max="300"   type="number" name="numero_alumnos[]" required></td>
                                             <td>h.<input style="width: 40px" step="1" value="{{$detalle->horas_teoria}}"  class="bg-primary rounded rounded-3" min="1" max="10" type="number" name="horas_teoria[]" required> x g.<input style="width: 40px" step="1" value="{{$detalle->grupos_teoria}}" class="bg-primary rounded rounded-3" min="1" max="10" type="number" name="grupos_teoria[]" required></td>
-                                            <td>h.<input style="width: 40px" step="1" value="{{$detalle->horas_practica}}" class="bg-primary rounded rounded-3" min="0" max="10" type="number" name="horas_practica[]" > x g.<input style="width: 40px" step="1" value="{{$detalle->grupos_practica}}" class="bg-primary rounded rounded-3" min="0" max="10" type="number" name="grupos_practica[]" ></td>
                                             <td>h.<input style="width: 40px" step="1" value="{{$detalle->horas_laboratorio}}" class="bg-primary rounded rounded-3" min="0" max="10" type="number" name="horas_laboratorio[]" > x g.<input style="width: 40px" step="1" value="{{$detalle->grupos_laboratorio}}" class="bg-primary rounded rounded-3" min="0" max="10" type="number" name="grupos_laboratorio[]" ></td>
-                                            <td>{{$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_practica*$detalle->grupos_practica + $detalle->horas_laboratorio*$detalle->grupos_laboratorio}}</td>
+                                            <td>{{$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_laboratorio*$detalle->grupos_laboratorio}}</td>
                                             @php
-                                                $total+=$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_practica*$detalle->grupos_practica + $detalle->horas_laboratorio*$detalle->grupos_laboratorio;
+                                                $total+=$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_laboratorio*$detalle->grupos_laboratorio;
                                             @endphp
                                         </tr>
                                     @empty
@@ -123,17 +121,36 @@
                                         <tr>
                                             <input type="hidden" name="detallecargas_id[]" value="{{$detalle->id}}">
                                             <td>{{$detalle->id}}</td>
-                                            <td>
-                                                <p>
+                                            <td class="d-inline-flex flex-wrap">
+                                                <div>
                                                     {{$detalle->carga->titulo}}
-                                                </p>
+                                                </div>
                                             </td>
                                             <td>
-                                                <textarea name="descripcion[]" id="" cols="30" rows="3">
-                                                    {{$detalle->descripcion}}
-                                                </textarea>
+                                                @if ($item->estado_terminado==0)
+                                                <input class="bg-info text-white" type="text" id="mostrar_{{$detalle->id}}" style="width: 100%; text-align: center;" 
+                                                    @if($detalle->cantidad_horas>0)
+                                                        @if($detalle->descripcion)
+                                                        value="{{100-strlen($detalle->descripcion)}}"
+                                                        @else
+                                                        value="{{100-strlen($detalle->carga->titulo)}}"
+                                                        @endif 
+                                                    @else 
+                                                    value="100"
+                                                    @endif
+                                                 disabled>
+                                                <br>
+                                                @endif
+                                                <textarea style="width: 100%;" name="descripcion[]"  onKeypress="contador(event,this,{{$detalle->id}});" cols="30" rows="3">@if($detalle->cantidad_horas>0)@if($detalle->descripcion){{$detalle->descripcion}}@else{{$detalle->carga->titulo}}@endif @else @endif</textarea>
+                                                <p id="msjeAlerta_{{$detalle->id}}"></p>
                                             </td>
-                                            <td>Horas: <input style="width: 40px"  class="bg-primary rounded rounded-3" min="0" max="10" step="1" value="{{$detalle->cantidad_horas}}"  type="number" name="cantidad_horas[]"></td>
+                                            <td>Horas: <input style="width: 40px"  class="bg-primary rounded rounded-3" min="0" max="6" step="1" 
+                                                @if ($detalle->cantidad_horas)
+                                                    value="{{$detalle->cantidad_horas}}" 
+                                                @else
+                                                    value="0"      
+                                                @endif
+                                                type="number" name="cantidad_horas[]"></td>
                                             @php
                                                 $total+=$detalle->cantidad_horas;
                                             @endphp
@@ -189,4 +206,20 @@
     </div>
   </div>
 </div>  
+@endsection
+@section('js')
+  <script>
+    function contador(event,obj,id){
+    console.log(obj)
+    $('#msjeAlerta_'+id).empty();
+    if(obj.value.length<=99){
+      var limite=100;
+      $('#mostrar_'+id).val(limite-(obj.value.length+1));
+    }
+    else{
+      event.returnValue = false;
+      $('#msjeAlerta_'+id).append("Campo: [máx: 100]");
+    }
+  }
+  </script>
 @endsection

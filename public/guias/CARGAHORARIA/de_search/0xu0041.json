@@ -1,0 +1,12 @@
+[
+	{ "s": "A", "p": [8] },
+	{ "s": "ACADÉMICO", "p": [3] },
+	{ "s": "ACTUALIZAR", "p": [9] },
+	{ "s": "ALUMNOS", "p": [6] },
+	{ "s": "ARCHIVO", "p": [3, 4] },
+	{ "s": "ASIGNACIÓN", "p": [11] },
+	{ "s": "ASIGNADA", "p": [5, 6] },
+	{ "s": "ASIGNADO", "p": [11] },
+	{ "s": "ASIGNAR", "p": [10, 12, 11] },
+	{ "s": "AULA", "p": [7] }
+]

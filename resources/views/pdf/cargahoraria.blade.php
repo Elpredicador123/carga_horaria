@@ -11,6 +11,10 @@
             font-size: 10.5px;
             font-weight: bold;
         }
+        table {
+            text-align: center;
+            width: 700px;
+        }
         th {
             border: .1px solid rgb(192, 188, 188);
             background: rgb(21, 101, 138);
@@ -21,9 +25,16 @@
             border: .1px solid rgb(192, 188, 188);
             padding: 0.3em 1em;
         }
-        table {
-            text-align: center;
-            width: 700px;
+        
+        .t2_d{
+            font-size: 10px;
+        }
+        .t1_st_1{
+            width: 100px;
+            text-align: left;
+        }
+        .t1_st_2{
+            width: 75px;
         }
         .t1_t_1{
             width: 250px;
@@ -39,11 +50,11 @@
             width: 670px;
             text-align: left;
         }
-        .t2_d{
-            font-size: 10px;
+        .t2_t_1{
+            width: 300px;
         }
         .t2_t_2{
-            width: 30px;
+            width: 35.2px;
         }
         .t3_t_1{
             width: 250px;
@@ -77,16 +88,16 @@
                         <div>
                             <h3>I. DATOS SOBRE LA SITUACION DEL PROFESOR:</h3>
                         </div>
-                        <h3 style="margin-left: 2em;">
-                            FACULTAD: {{$item->declaracionjurada->docente->escuela->facultad->descripcion}}
-                        </h3>
-                        <h3 style="margin-left: 2em;">
-                            ESCUELA: {{$item->declaracionjurada->docente->escuela->descripcion}}
-                        </h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead class="bg-info">
+                                <tr>
+                                    <th class="t1_st_1">FACULTAD</th>
+                                    <th class="t1_st_2" style="background: white;color:black;">{{$item->declaracionjurada->docente->escuela->facultad->descripcion}}</th>
+                                    <th class="t1_st_1">ESCUELA</th>
+                                    <th class="t1_st_2" style="background: white;color:black;">{{$item->declaracionjurada->docente->escuela->descripcion}}</th>
+                                </tr>
                                 <tr>
                                     <th class="t1_t_1">NOMBRE COMPLETO</th>
                                     <th class="t1_t_2">CONDICION</th>
@@ -122,7 +133,6 @@
                                         <th class="t2_t_2">CIC</th>
                                         <th class="t2_t_2">N°AL</th>
                                         <th class="t2_t_2">H.T</th>
-                                        <th class="t2_t_2">H.P</th>
                                         <th class="t2_t_2">H.L</th>
                                         <th class="t2_t_2">TOTAL</th>
                                     </tr>
@@ -140,11 +150,10 @@
                                             <td>{{$detalle->ciclo->descripcion}}</td>
                                             <td>{{$detalle->numero_alumnos}}</td>
                                             <td>{{$detalle->horas_teoria}} x {{$detalle->grupos_teoria}}</td>
-                                            <td>{{$detalle->horas_practica}} x {{$detalle->grupos_practica}}</td>
                                             <td>{{$detalle->horas_laboratorio}} x {{$detalle->grupos_laboratorio}}</td>
-                                            <td>{{$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_practica*$detalle->grupos_practica + $detalle->horas_laboratorio*$detalle->grupos_laboratorio}}</td>
+                                            <td>{{$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_laboratorio*$detalle->grupos_laboratorio}}</td>
                                             @php
-                                                $total+=$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_practica*$detalle->grupos_practica + $detalle->horas_laboratorio*$detalle->grupos_laboratorio;
+                                                $total+=$detalle->horas_teoria*$detalle->grupos_teoria + $detalle->horas_laboratorio*$detalle->grupos_laboratorio;
                                             @endphp
                                         </tr>
                                     @empty
@@ -172,7 +181,7 @@
                                                 <br>
                                                 {{$detalle->carga->descripcion}}
                                             </td>
-                                            <td>{{$detalle->descripcion}}</td>
+                                            <td style="text-align: left;text-transform: lowercase;">{{$detalle->descripcion}}</td>
                                             <td class="t3_t_3">{{$detalle->cantidad_horas}}</td>
                                             @php
                                                 $total+=$detalle->cantidad_horas;

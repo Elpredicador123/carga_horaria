@@ -23,8 +23,6 @@ class CreateDetallecargalectivasTable extends Migration
             $table->bigInteger('numero_alumnos')->nullable()->default(0);
             $table->bigInteger('horas_teoria')->nullable()->default(0);
             $table->bigInteger('grupos_teoria')->nullable()->default(0);
-            $table->bigInteger('horas_practica')->nullable()->default(0);
-            $table->bigInteger('grupos_practica')->nullable()->default(0);
             $table->bigInteger('horas_laboratorio')->nullable()->default(0);
             $table->bigInteger('grupos_laboratorio')->nullable()->default(0);
             $table->timestamps();

@@ -124,6 +124,11 @@
                     </ul>
                     <ul class="nav-right">
                             <li class="nav-item dropdown">
+                                <a class="nav-link" target="_blank" href="/guias/CARGAHORARIA/index.htm">
+                                    <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -367,7 +372,16 @@
 <script src="/admin/pages/dashboard/custom-dashboard.js"></script>
 <script src="/admin/js/script.js"></script>
 <script src="/admin/select2/bootstrap-select.min.js"></script>
+<script src="https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
     <!-- validación jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script>
+        $(document).bind('keydown', 'ctrl+q', function(){
+        //alert("Has pulsado ctrl+a");
+        var win = window.open("/guias/CARGAHORARIA/index.htm", '_blank');
+        win.focus();
+        });
+    </script>
+    @yield('js')
 </body>
 </html>

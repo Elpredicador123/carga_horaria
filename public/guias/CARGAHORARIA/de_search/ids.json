@@ -1,0 +1,14 @@
+{
+	"1": ["Página p... ¡Se requiere una licencia Advanced!", "index.htm", []],
+	"2": ["1. Listado de Declaraciones... ¡Se requiere una licencia Advanced!", "listado_de_declaraciones_juradas_del_usuario_docente.htm", []],
+	"3": ["1.1. Crear nueva ... ¡Se requiere una licencia Advanced!", "crear_nueva_declaracion_jurada.htm", [1]],
+	"4": ["1.2. Visualizar los detalles de... ¡Se requiere una licencia Advanced!", "visualizar_los_detalles_de_una_declaracion_jurada_enviada.htm", [1]],
+	"5": ["2.  Declaración Asigna... ¡Se requiere una licencia Advanced!", "_declaracion_asignada_del_usuario_docente.htm", []],
+	"6": ["2.1. Llenado de... ¡Se requiere una licencia Advanced!", "llenado_de_carga_asignada.htm", [2]],
+	"7": ["2.2. Llenado de... ¡Se requiere una licencia Advanced!", "llenado_de_horario_semanal.htm", [2]],
+	"8": ["3. Revisar declaraciones juradas -... ¡Se requiere una licencia Advanced!", "revisar_declaraciones_juradas___usuario_secretaria_de_departemento.htm", []],
+	"9": ["3.1. Evaluar de... ¡Se requiere una licencia Advanced!", "evaluar_declaracion_jurada.htm", [3]],
+	"10": ["3.2. Asignar curs... ¡Se requiere una licencia Advanced!", "asignar_cursos_y_carga_horaria.htm", [3]],
+	"11": ["3.2.1. Asi... ¡Se requiere una licencia Advanced!", "asignar_cursos.htm", [3,9]],
+	"12": ["3.2.2. Asi... ¡Se requiere una licencia Advanced!", "asignar_carga.htm", [3,9]]
+}
