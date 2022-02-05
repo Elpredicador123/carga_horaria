@@ -71,7 +71,7 @@
                                     <td class="text-warning"><i class="fa fa-eye fa-lg mr-1"></i> {{$item->estado}}</td>
                                 @endif
                                 <td>
-                                  <a class="btn btn-primary btn-sm" target="_blank" href="{{ route('declaracionjurada.imprimir_declaracionjurada',$item->id) }}"><i class="fa fa-download"></i></a>
+                                  <a class="btn btn-primary btn-sm" target="_blank" href="{{ route('declaracionjurada.imprimir_declaracionjurada',$item->id) }}"><i class="fa fa-download mr-1"></i></a>
                                 </td>
                                 <td>
                                   <a class="btn btn-primary" href="{{ route('declaracionjurada.edit',$item->id) }}"><i class="fa fa-search"></i> Detalle</a>
